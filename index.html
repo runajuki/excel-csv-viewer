@@ -113,34 +113,6 @@
     .tt-chip{display:inline-flex;align-items:center;gap:6px}
     .tt-chip > .rm{padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--input-bg);cursor:pointer}
     .tt-chip > .rm:hover{background:var(--accent-weak)}
-  
-
-/* === モバイル/タブレット最適化: ここから === */
-@media (max-width: 960px){
-  .topbar{flex-wrap:wrap; gap:10px}
-  .wrap{padding:0 12px 28px}
-  .table-scroll{max-height:56vh}
-}
-@media (max-width: 720px){
-  .btn{flex:1 1 48%}
-  .toggle{width:100%; justify-content:flex-start}
-  .filter-card{grid-template-columns:1fr}
-  .field{gap:8px}
-  .field .mini{width:100%; flex:1 1 100%}
-  .input{font-size:15px}
-  thead th, tbody td{min-width:92px}
-  thead th{font-size:12px}
-  tbody td{font-size:13px}
-  #chartCanvas{height:220px !important}
-  .chart-header .hint{display:none}
-  .table-scroll{max-height:52vh}
-}
-@media (max-width: 420px){
-  .btn{flex:1 1 100%}
-  .table-scroll{max-height:48vh}
-  thead th, tbody td{min-width:84px}
-}
-/* === モバイル/タブレット最適化: ここまで === */
   </style>
 </head>
 <body>
@@ -834,7 +806,6 @@
         cfgType = 'scatter';
         data = { datasets: [{ label: '散布図', data: winPoints, avgAll: overallAvg }] };
         options = {
-          maintainAspectRatio: false,
           parsing: false,
           scales: {
             x: { type: 'linear', title: { display: true, text: document.getElementById('axisXLabel').textContent } },
@@ -850,7 +821,6 @@
         cfgType = 'line';
         data = { labels: winLabels, datasets: [{ label: '推移', data: winValues, tension: 0.2, avgAll: overallAvg }] };
         options = {
-          maintainAspectRatio: false,
           scales: {
             x: { title: { display: true, text: document.getElementById('axisXLabel').textContent } },
             y: { title: { display: true, text: document.getElementById('axisYLabel').textContent } }
@@ -865,7 +835,6 @@
         cfgType = 'bar';
         data = { labels: winLabels, datasets: [{ label: '合計', data: winValues, avgAll: overallAvg }] };
         options = {
-          maintainAspectRatio: false,
           scales: {
             x: { title: { display: true, text: document.getElementById('axisXLabel').textContent } },
             y: { title: { display: true, text: document.getElementById('axisYLabel').textContent } }
